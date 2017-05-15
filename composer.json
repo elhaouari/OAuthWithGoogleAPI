@@ -1,0 +1,6 @@
+{
+    "name": "nabil/oauth-google",
+    "require": {
+        "google/apiclient": "^2.0"
+    }
+}
