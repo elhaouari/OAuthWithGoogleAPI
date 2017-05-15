@@ -4,7 +4,7 @@
 *
 *
 ************************************/
-class GoogleAuth{
+class GoogleAuth extends Auth{
 
 	private $client;
 
@@ -20,12 +20,6 @@ class GoogleAuth{
 		return $this->client;
 	}
 
-	/**
-	* check if the user logged in
-	*/
-	public function isLoggedIn() {
-		return isset($_SESSION['access_token']);
-	}	
 
 	/**
 	* create the auth url for sign sign in with Google API
@@ -58,13 +52,7 @@ class GoogleAuth{
   		$this->client->setAccessToken($token);
 	}
 
-	/**
-	* just sign the logout form the app
-	*/
-	public function logout(){
-		unset($_SESSION['access_token']);
-	}
-
+	
 	public function getData() {
 		if ($this->client->getAccessToken()) {
 			return $this->client->verifyIdToken();
